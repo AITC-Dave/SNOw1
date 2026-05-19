@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>Set item type filed automatically for mobiles</description>
+        <field>cmdb_ci</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Set Loaner Item Type</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+if (isLoading)
+	return;
+
+g_form.getReference('cmdb_ci',checkName);
+/* This grabs the record for the configuration item, 
+then performs the below function using that record. 
+See additional note below for usage tips. */
+
+function checkName(ci){
+	var name = ci.name + '';
+	// Check the name of the CI using regular expressions; 
+	// Set and lock Item type field based on the CI name.
+	if (name.match(/.*blackberry.*/i) || name.match(/.*iphone.*/i) || name.match(/.*android.*/i)) {
+		g_form.setValue('item_type', 'cmdb_ci_mobile_device','Mobile Phone');
+		g_form.setReadOnly('item_type', true);
+	} else if(name.match(/.*macbook.*/i)){
+		g_form.setValue('item_type', 'cmdb_ci_computer','Laptop');
+		g_form.setReadOnly('item_type', true);
+	} else {
+		g_form.setReadOnly('item_type', false);
+	}
+}
+
+/***** 
+Yes, g_form.getReference() fell from grace as a recommended practice some releases ago. 
+However, it is still broadly used in a pinch to fetch a single record without using the rigors of 
+GlideAJAX; a quick code search will confirm hundreds of occurrences. 
+Use with caution! For more information: 
+https://developer.servicenow.com/dev.do#!/reference/api/vancouver/client/c_GlideFormAPI#r_GlideForm-GetReference_S_F?navFilter=getR
+*****/
+
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-18 17:24:44</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>927c41bb94b003107f444ffe639dc8b7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Set Loaner Item Type</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Loaner Request" source="x_cdltd_loaner_r_0">810de86945b003107f444d558e239169</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Loaner Request">810de86945b003107f444d558e239169</sys_scope>
+        <sys_update_name>sys_script_client_927c41bb94b003107f444ffe639dc8b7</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-18 17:24:44</sys_updated_on>
+        <table>x_cdltd_loaner_r_0_loaner_request</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Loaner Request">810de86945b003107f444d558e239169</application>
+        <file_path/>
+        <instance_id>e5ddbb51c3b84b5878dbf19f050131da</instance_id>
+        <instance_name>nowlearning-nlinst04158503-6bgtk-0001</instance_name>
+        <name>sys_script_client_927c41bb94b003107f444ffe639dc8b7</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description&gt;Set item type filed automatically for mobiles&lt;/description&gt;&lt;field&gt;cmdb_ci&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Set Loaner Item Type&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+if (isLoading)
+	return;
+
+g_form.getReference('cmdb_ci',checkName);
+/* This grabs the record for the configuration item, 
+then performs the below function using that record. 
+See additional note below for usage tips. */
+
+function checkName(ci){
+	var name = ci.name + '';
+	// Check the name of the CI using regular expressions; 
+	// Set and lock Item type field based on the CI name.
+	if (name.match(/.*blackberry.*/i) || name.match(/.*iphone.*/i) || name.match(/.*android.*/i)) {
+		g_form.setValue('item_type', 'cmdb_ci_mobile_device','Mobile Phone');
+		g_form.setReadOnly('item_type', true);
+	} else if(name.match(/.*macbook.*/i)){
+		g_form.setValue('item_type', 'cmdb_ci_computer','Laptop');
+		g_form.setReadOnly('item_type', true);
+	} else {
+		g_form.setReadOnly('item_type', false);
+	}
+}
+
+/***** 
+Yes, g_form.getReference() fell from grace as a recommended practice some releases ago. 
+However, it is still broadly used in a pinch to fetch a single record without using the rigors of 
+GlideAJAX; a quick code search will confirm hundreds of occurrences. 
+Use with caution! For more information: 
+https://developer.servicenow.com/dev.do#!/reference/api/vancouver/client/c_GlideFormAPI#r_GlideForm-GetReference_S_F?navFilter=getR
+*****/
+
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-05-18 17:24:44&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;927c41bb94b003107f444ffe639dc8b7&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;Set Loaner Item Type&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Loaner Request" source="x_cdltd_loaner_r_0"&gt;810de86945b003107f444d558e239169&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Loaner Request"&gt;810de86945b003107f444d558e239169&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_927c41bb94b003107f444ffe639dc8b7&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-05-18 17:24:44&lt;/sys_updated_on&gt;&lt;table&gt;x_cdltd_loaner_r_0_loaner_request&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-494808774</payload_hash>
+        <record_name>Set Loaner Item Type</record_name>
+        <reverted_from/>
+        <source>532dd06e49b003107f44a08b3bc0a49d</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-18 17:24:44</sys_created_on>
+        <sys_id>e7afc53f94b003107f444ffe639dc8b9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19e3c1e60b20000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-18 17:24:44</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>afafc53fd5b00310f493f42ba4d6f6b8</update_guid>
+        <update_guid_history>afafc53fd5b00310f493f42ba4d6f6b8:-494808774</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-19 13:41:39</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>2c896fb0defc422f986a0e8a2b8676e9</sys_id>
+        <sys_metadata>927c41bb94b003107f444ffe639dc8b7</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Set Loaner Item Type</sys_name>
+        <sys_package display_value="Loaner Request" source="x_cdltd_loaner_r_0">810de86945b003107f444d558e239169</sys_package>
+        <sys_parent display_value="Loaner Request">32db9d7d553003107f44c30a9ef26695</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Loaner Request">810de86945b003107f444d558e239169</sys_scope>
+        <sys_scope_delete display_value="">040192b6633a4a00bd46199aabe1e400</sys_scope_delete>
+        <sys_update_name>sys_script_client_927c41bb94b003107f444ffe639dc8b7</sys_update_name>
+        <sys_update_version display_value="sys_script_client_927c41bb94b003107f444ffe639dc8b7">e7afc53f94b003107f444ffe639dc8b9</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-19 13:41:39</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
