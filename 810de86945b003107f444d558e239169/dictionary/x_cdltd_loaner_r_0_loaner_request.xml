@@ -10,6 +10,7 @@
         </element>
         <element label="End date" mandatory="true" max_length="255" name="end_date" type="glide_date_time"/>
         <element label="Start date" mandatory="true" max_length="255" name="start_date" type="glide_date_time"/>
+        <element label="Pick up Reminder" max_length="255" name="pick_up_reminder" type="glide_date_time"/>
         <element label="Location to be used" max_length="40" name="location_to_be_used" type="string"/>
         <element choice="1" default="sc" label="Depot" max_length="40" name="depot" type="choice">
             <choice>
